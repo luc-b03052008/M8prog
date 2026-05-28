@@ -8,6 +8,6 @@
 <body>
     <h1>Product detail page</h1>
     <p>Product id: {{ $id }}</p>
-    <p><a href="/">Back to products</a></p>
+    <p><a href="{{ route('products.index') }}">Back to products</a></p>
 </body>
 </html>

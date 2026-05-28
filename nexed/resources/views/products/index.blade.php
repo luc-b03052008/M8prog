@@ -6,13 +6,17 @@
     <title>Products</title>
 </head>
 <body>
-    <h1>Products</h1>
-    <ul>
-        @foreach ($products as $product)
-            <li>
-                <a href="/product/{{ $product['id'] }}">{{ $product['name'] }}</a>
-            </li>
-        @endforeach
-    </ul>
+    @if (request()->is('none'))
+        <h1>404 Not Found</h1>
+    @else
+        <h1>Products</h1>
+        <ul>
+            @foreach ($products as $product)
+                <li>
+                    <a href="{{ url('products/'.$product['id']) }}">{{ $product['name'] }}</a>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 </body>
 </html>
