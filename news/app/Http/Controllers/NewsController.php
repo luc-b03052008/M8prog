@@ -25,7 +25,19 @@ class NewsController extends Controller
     public function index()
     {
         return view('news', [
-            'articles' => $this->articles,
+            'articles' => $this->articles
+        ]);
+    }
+
+    public function show(string $slug)
+    {
+        $article = collect($this->articles)->firstWhere('slug', $slug);
+
+        abort_if(!$article, 404);
+
+        return view('article', [
+            'article' => $article
         ]);
     }
 }
+

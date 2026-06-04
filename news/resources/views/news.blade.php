@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>News Views</title>
-
-    
+    <title>News Overview</title>
 </head>
-
 <body>
-    <h1>News Views</h1>
 
-    @foreach ($articles as $article)
-        <article>
-            <h2>{{ $article['title'] }}</h2>
-            <p>{{ $article['intro'] }}</p>
-        </article>
-    @endforeach
+@include('partials.nav')
+
+<h1>News Overview</h1>
+
+@foreach ($articles as $article)
+    <article style="margin-bottom: 30px;">
+        <h2>
+            <a href="{{ route('news.show', $article['slug']) }}">
+                {{ $article['title'] }}
+            </a>
+        </h2>
+        <p>{{ $article['intro'] }}</p>
+    </article>
+@endforeach
+
 </body>
 </html>
+
 
 
 
