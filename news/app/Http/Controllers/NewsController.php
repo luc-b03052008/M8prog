@@ -22,6 +22,14 @@ class NewsController extends Controller
         ],
     ];
 
+    public function getArticleSlugs(): array
+    {
+        return collect($this->articles)->map(fn($article) => [
+            'slug' => $article['slug'],
+            'title' => $article['title'],
+        ])->toArray();
+    }
+
     public function index()
     {
         return view('news', [
