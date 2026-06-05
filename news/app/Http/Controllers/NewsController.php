@@ -37,15 +37,20 @@ class NewsController extends Controller
         ]);
     }
 
-    public function show(string $slug)
-    {
-        $article = collect($this->articles)->firstWhere('slug', $slug);
+   public function show(string $slug)
+{
+    $article = collect($this->articles)->firstWhere('slug', $slug);
 
-        abort_if(!$article, 404);
-
-        return view('article', [
-            'article' => $article
-        ]);
+    if (!$article) {
+        return response()
+            ->view('404', [
+                'message' => "Article named '$slug' could not be found."
+            ], 404);
     }
+
+    return view('article', [
+        'article' => $article
+    ]);
+}
 }
 
