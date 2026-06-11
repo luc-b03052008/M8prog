@@ -3,7 +3,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>News Views | Resource not found</title>
+    <title>News Views |  not found</title>
 </head>
 <body>
 

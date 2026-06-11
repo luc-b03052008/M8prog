@@ -42,15 +42,13 @@ class NewsController extends Controller
     $article = collect($this->articles)->firstWhere('slug', $slug);
 
     if (!$article) {
-        return response()
-            ->view('404', [
-                'message' => "Article named '$slug' could not be found."
-            ], 404);
+        abort(404, "Article named '$slug' could not be found.");
     }
 
     return view('article', [
         'article' => $article
     ]);
 }
+
 }
 
