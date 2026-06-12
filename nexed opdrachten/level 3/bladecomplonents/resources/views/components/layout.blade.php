@@ -8,8 +8,9 @@
         body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;background:#f5f5f5}
         .container{max-width:1000px;margin:0 auto;padding:16px}
         header,footer{background:#fff;padding:12px 0;box-shadow:0 1px 0 rgba(0,0,0,.05)}
-        nav a{display:inline-block;padding:8px 12px;border-radius:4px;margin-right:6px;color:#333;text-decoration:none}
-        nav a.active{background:#007bff;color:#fff}
+        nav{display:flex;gap:6px}
+        .nav-link{display:inline-block;padding:8px 12px;border-radius:4px;color:#333;text-decoration:none;transition:all .2s}
+        .nav-link.active{background:#007bff;color:#fff}
         .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
         .card{background:#fff;padding:12px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
         .logo{font-weight:700;font-size:1.2rem}
@@ -21,7 +22,7 @@
         <div class="container header-top">
             <div style="display:flex;gap:12px;align-items:center">
                 <x-header-logo />
-                <x-header-nav :active="$active" />
+                <x-nav :active="$active" />
             </div>
             <x-header-search />
         </div>
